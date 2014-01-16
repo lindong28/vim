@@ -226,6 +226,7 @@ nmap <C-@>d :cs find d <C-R>=expand(”<cword>”)<CR><CR>:copen<CR>
 "let g:miniBufExplModSelTarget = 1
 
 
+set shortmess+=A
 
 
 
