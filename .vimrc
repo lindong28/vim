@@ -42,6 +42,7 @@ nmap <F2> :cn<CR>
 nmap <F3>  g<C-]>
 nmap <C-]> g<C-]>
 nmap <C-T> :tabnew<CR>
+nmap <C-O> :pop<CR>
 nmap <S-C-p> %
 nmap <C-F11> :tabp<CR>
 nmap <C-F12> :tabn<CR>
