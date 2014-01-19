@@ -1,10 +1,6 @@
 au! BufWritePost .vimrc source %
 
 
-"autocmd VimLeavePre * mksession! ~/.vim.sess
-
-"source ~/.vim.sess
-
 
 filetype off
 call pathogen#incubate()
@@ -52,6 +48,7 @@ nmap <F5> :edit<CR>
 imap <C-space> <C-N>
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 nmap <C-S> :w<CR>
+nmap <C-L> :TlistToggle<CR>
 
 "imap <Nul> <C-N>
 "inoremap <Nul> <C-X><C-O>
@@ -93,19 +90,6 @@ endfunction
 
 noremap <silent> <A-Up> :call <SID>swap_up()<CR>
 noremap <silent> <A-Down> :call <SID>swap_down()<CR>
-
-
-function! ShowFunc()
-  let gf_s = &grepformat
-  let gp_s = &grepprg
-  let grepformat = '%*\k%*\sfunction%*\s%l%*\s%f %*\s%m'
-  let grepprg = 'ctags -x --c-types=f --sort=no -o -'
-  write
-  silent! grep %
-  cwindow
-  let &grepformat = gf_s
-  let &grepprg = gp_s
-endfunction
 
 
 function! TabLeft()
