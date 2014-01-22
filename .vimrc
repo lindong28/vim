@@ -28,17 +28,16 @@ set wildmode=longest:full
 set wildmenu
 set backspace=indent,eol,start
 
-nmap <C-O> <C-O>
 nmap <A-Left> <C-O>
 nmap <A-Right> <C-I>
 nmap <S-O> :!ctags -x --c-types=f -o - %<CR>
 nmap <F1> :cprev<CR>
 nmap <F2> :cn<CR>
 "nmap <F3> :tab split<CR> g<C-]>
-nmap <F3>  g<C-]>
 nmap <C-]> g<C-]>
 nmap <C-T> :tabnew<CR>
 nmap <C-O> :pop<CR>
+nmap <C-I> :tag<CR>
 nmap <S-C-p> %
 nmap <C-F11> :tabp<CR>
 nmap <C-F12> :tabn<CR>
@@ -141,11 +140,7 @@ inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDow
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 
-
 cs add ./cscope.out ./
-
-
-" colorscheme morning
 
 
 let Tlist_Exit_OnlyWindow=1
@@ -162,22 +157,26 @@ let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 
 nmap wm :WMToggle<cr>
-nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+
+"   's'   symbol: find all references to the token under cursor
+"   'g'   global: find global definition(s) of the token under cursor
+"   'c'   calls:  find all calls to the function name under cursor
+"   't'   text:   find all instances of the text under cursor
+"   'e'   egrep:  egrep search for the word under cursor
+"   'f'   file:   open the filename under cursor
+"   'i'   includes: find files that include the filename under cursor
+"   'd'   called: find functions that function under cursor calls
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 nmap <F6> :cp<CR>
 nmap <F7> :cn<CR>
-
-
-
-" source ~/.vim/plugin/cscope_maps.vim
-" set guifont=Bitstream\ Vera\ Sans\ Mono\ 14
-
 
 
 set comments=://
@@ -188,21 +187,7 @@ set showtabline=2
 set tpm=10
 set tal=10
 
-set nobackup
-
-
-
 set csto=1
-
-
-nmap <C-@>s :cs find s <C-R>=expand(”<cword>”)<CR><CR>:copen<CR>
-nmap <C-@>g :cs find g <C-R>=expand(”<cword>”)<CR><CR>
-nmap <C-@>c :cs find c <C-R>=expand(”<cword>”)<CR><CR>:copen<CR>
-nmap <C-@>t :cs find t <C-R>=expand(”<cword>”)<CR><CR>:copen<CR>
-nmap <C-@>e :cs find e <C-R>=expand(”<cword>”)<CR><CR>:copen<CR>
-nmap <C-@>f :cs find f <C-R>=expand(”<cfile>”)<CR><CR>:copen<CR>
-nmap <C-@>i :cs find i <C-R>=expand(”<cfile>”)<CR>$<CR>:copen<CR>
-nmap <C-@>d :cs find d <C-R>=expand(”<cword>”)<CR><CR>:copen<CR>
 
 
 "let g:miniBufExplMapWindowNavVim = 1
@@ -213,13 +198,4 @@ nmap <C-@>d :cs find d <C-R>=expand(”<cword>”)<CR><CR>:copen<CR>
 
 set shortmess+=A
 
-
-
-" set fo=tcrq		" fo to specify default formatoptions
-
-"set backspace=2
-
-" set expandtab           " Tabs are expanded to spaces
-
-" source $VIMRUNTIME/vimrc_example.vim
 
