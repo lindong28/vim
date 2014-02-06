@@ -15,7 +15,7 @@ set guifont=monospace\ 15
 set nocompatible
 set tags=tags,./tags,.././tags
 set ignorecase
-set autoindent shiftwidth=4
+set autoindent shiftwidth=2
 set textwidth=79
 set expandtab
 set tabstop=4
@@ -35,6 +35,7 @@ nmap <F1> :cprev<CR>
 nmap <F2> :cn<CR>
 "nmap <F3> :tab split<CR> g<C-]>
 nmap <C-]> g<C-]>
+nmap <C-A> g<C-]>
 nmap <C-T> :tabnew<CR>
 nmap <C-O> :pop<CR>
 nmap <C-I> :tag<CR>
