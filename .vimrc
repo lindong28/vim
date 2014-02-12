@@ -91,6 +91,11 @@ endfunction
 noremap <silent> <A-Up> :call <SID>swap_up()<CR>
 noremap <silent> <A-Down> :call <SID>swap_down()<CR>
 
+function! Index()
+    execute "!ctags -R"
+    execute "!cscope -bkqR"
+    execute "cs reset"
+endfunction
 
 function! TabLeft()
 	let tab_number = tabpagenr() - 1
@@ -176,6 +181,7 @@ nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>r :call Index() <CR>
 nmap <F6> :cp<CR>
 nmap <F7> :cn<CR>
 
