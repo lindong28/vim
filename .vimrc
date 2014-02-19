@@ -18,8 +18,8 @@ set ignorecase
 set autoindent shiftwidth=2
 set textwidth=79
 set expandtab
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set hls is		" Highlight search
 set nu
 " set cscopequickfix=s-,c-,d-,i-,t-,e-
