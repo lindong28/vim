@@ -6,6 +6,8 @@ filetype off
 call pathogen#incubate()
 call pathogen#helptags()
 
+let g:jedi#auto_initialization = 0
+
 syntax on
 filetype on
 filetype plugin indent on
