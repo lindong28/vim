@@ -12,6 +12,7 @@ syntax on
 filetype on
 filetype plugin indent on
 
+colorscheme morning
 
 set guifont=monospace\ 15
 set nocompatible
@@ -93,6 +94,13 @@ endfunction
 noremap <silent> <A-Up> :call <SID>swap_up()<CR>
 noremap <silent> <A-Down> :call <SID>swap_down()<CR>
 
+function! PythonIndex()
+    execute "!find . -name '*.py'> cscope.files"
+    execute "!ctags -R"
+    execute "!cscope -b"
+    execute "cs reset"
+endfunction
+
 function! Index()
     execute "!ctags -R"
     execute "!cscope -bkqR"
@@ -148,7 +156,7 @@ inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDow
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 
-cs add ./cscope.out ./
+"cs add ./cscope.out ./
 
 
 let Tlist_Exit_OnlyWindow=1
@@ -184,6 +192,7 @@ nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>r :call Index() <CR>
+nmap <C-\>p :call PythonIndex() <CR>
 nmap <F6> :cp<CR>
 nmap <F7> :cn<CR>
 
