@@ -12,7 +12,7 @@ syntax on
 filetype on
 filetype plugin indent on
 
-colorscheme morning
+"colorscheme morning
 
 set guifont=monospace\ 15
 set nocompatible
@@ -49,6 +49,7 @@ nmap <S-F11> :execute TabLeft()<CR>
 nmap <S-F12> :execute TabRight()<CR>
 nmap <F5> :edit<CR>
 imap <C-space> <C-N>
+nmap <C-J> :execute '%!python -m json.tool' <CR>
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 nmap <C-S> :w<CR>
 nmap <C-L> :TlistToggle<CR>
