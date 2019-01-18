@@ -1,24 +1,20 @@
 au! BufWritePost .vimrc source %
-
-
-
-filetype off
-call pathogen#incubate()
-call pathogen#helptags()
-
 let g:jedi#auto_initialization = 0
 
 syntax on
 filetype on
 filetype plugin indent on
 
+"call pathogen#incubate()
+"call pathogen#helptags()
 "colorscheme morning
 
-set guifont=monospace\ 15
+set guifont=monospace\ 16
 set nocompatible
 set tags=tags,./tags,.././tags
 set ignorecase
 set autoindent shiftwidth=2
+set ts=4 sw=4
 set textwidth=79
 set expandtab
 set tabstop=2
@@ -199,22 +195,17 @@ nmap <F7> :cn<CR>
 
 
 set comments=://
-
 set cmdheight=1
-
 set showtabline=2 
 set tpm=10
 set tal=10
-
 set csto=1
-
+set shortmess+=A
+set paste
 
 "let g:miniBufExplMapWindowNavVim = 1
 "let g:miniBufExplMapWindowNavArrows = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1
-
-
-set shortmess+=A
 
 
