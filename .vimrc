@@ -3,8 +3,9 @@ let g:jedi#auto_initialization = 0
 
 syntax on
 filetype on
-filetype plugin indent on
+filetype indent on
 
+"filetype plugin on
 "call pathogen#incubate()
 "call pathogen#helptags()
 "colorscheme morning
@@ -14,7 +15,6 @@ set nocompatible
 set tags=tags,./tags,.././tags
 set ignorecase
 set autoindent shiftwidth=2
-set ts=4 sw=4
 set textwidth=79
 set expandtab
 set tabstop=2
@@ -45,7 +45,7 @@ nmap <S-F11> :execute TabLeft()<CR>
 nmap <S-F12> :execute TabRight()<CR>
 nmap <F5> :edit<CR>
 imap <C-space> <C-N>
-nmap <C-J> :execute '%!python -m json.tool' <CR>
+nmap <C-\>j :execute '%!python -m json.tool' <CR>
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 nmap <C-S> :w<CR>
 nmap <C-L> :TlistToggle<CR>
@@ -192,7 +192,6 @@ nmap <C-\>r :call Index() <CR>
 nmap <C-\>p :call PythonIndex() <CR>
 nmap <F6> :cp<CR>
 nmap <F7> :cn<CR>
-
 
 set comments=://
 set cmdheight=1
