@@ -207,4 +207,4 @@ set paste
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1
 
-
+set expandtab
