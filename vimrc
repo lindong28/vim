@@ -1,15 +1,17 @@
+source /usr/share/vim/google/google.vim
+
 au! BufWritePost .vimrc source %
 let g:jedi#auto_initialization = 0
+
+execute pathogen#infect()
 
 syntax on
 filetype on
 filetype indent on
-
 "filetype plugin on
-"call pathogen#incubate()
-"call pathogen#helptags()
 "colorscheme morning
 
+"set paste  " Turn off auto indent when editing code
 set guifont=monospace\ 16
 set nocompatible
 set tags=tags,./tags,.././tags
@@ -190,21 +192,34 @@ nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>r :call Index() <CR>
 nmap <C-\>p :call PythonIndex() <CR>
+nmap <C-\>s :SyntasticCheck <CR>
 nmap <F6> :cp<CR>
 nmap <F7> :cn<CR>
 
 set comments=://
 set cmdheight=1
-set showtabline=2 
+set showtabline=2
 set tpm=10
 set tal=10
 set csto=1
 set shortmess+=A
-set paste
 
 "let g:miniBufExplMapWindowNavVim = 1
 "let g:miniBufExplMapWindowNavArrows = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1
 
+" Syntastic configuration
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+Glug syntastic-google checkers=`{'python': 'gpylint'}`
+let g:syntastic_mode_map = {'mode': 'passive'}
+
+
 set expandtab
+
