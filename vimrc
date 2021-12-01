@@ -1,7 +1,11 @@
-source /usr/share/vim/google/google.vim
 
 au! BufWritePost .vimrc source %
 let g:jedi#auto_initialization = 0
+
+set textwidth=80
+
+"set expandtab and :retab  // Replace tab with space
+"set list  // Display tab as character
 
 execute pathogen#infect()
 
@@ -9,17 +13,16 @@ syntax on
 filetype on
 filetype indent on
 "filetype plugin on
-"colorscheme morning
+colorscheme zellner
 
-"set paste  " Turn off auto indent when editing code
-set guifont=monospace\ 16
+set paste  " Turn off auto indent when editing code
+"set guifont=monospace\ 16
+set guifont=Monaco:h18
 set nocompatible
 set tags=tags,./tags,.././tags
 set ignorecase
-set autoindent shiftwidth=2
-set textwidth=79
-set expandtab
-set tabstop=2
+set autoindent
+set tabstop=2 shiftwidth=2 expandtab
 set softtabstop=2
 set hls is		" Highlight search
 set nu
@@ -45,6 +48,8 @@ nmap <C-F11> :tabp<CR>
 nmap <C-F12> :tabn<CR>
 nmap <S-F11> :execute TabLeft()<CR>
 nmap <S-F12> :execute TabRight()<CR>
+nmap <C-Left> :tabp<CR>
+nmap <C-Right> :tabn<CR>
 nmap <F5> :edit<CR>
 imap <C-space> <C-N>
 nmap <C-\>j :execute '%!python -m json.tool' <CR>
@@ -95,13 +100,13 @@ noremap <silent> <A-Down> :call <SID>swap_down()<CR>
 
 function! PythonIndex()
     execute "!find . -name '*.py'> cscope.files"
-    execute "!ctags -R"
+    execute "!ctags -R --extra=+f"
     execute "!cscope -b"
     execute "cs reset"
 endfunction
 
 function! Index()
-    execute "!ctags -R"
+    execute "!ctags -R --extra=+f"
     execute "!cscope -bkqR"
     execute "cs reset"
 endfunction
@@ -155,7 +160,7 @@ inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDow
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 
-"cs add ./cscope.out ./
+cs add ./cscope.out ./
 
 
 let Tlist_Exit_OnlyWindow=1
@@ -192,7 +197,6 @@ nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>r :call Index() <CR>
 nmap <C-\>p :call PythonIndex() <CR>
-nmap <C-\>s :SyntasticCheck <CR>
 nmap <F6> :cp<CR>
 nmap <F7> :cn<CR>
 
@@ -217,9 +221,8 @@ set shortmess+=A
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
-Glug syntastic-google checkers=`{'python': 'gpylint'}`
 let g:syntastic_mode_map = {'mode': 'passive'}
 
-
-set expandtab
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
 
