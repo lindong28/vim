@@ -13,7 +13,7 @@ syntax on
 filetype on
 filetype indent on
 "filetype plugin on
-colorscheme zellner
+"colorscheme zellner
 
 set paste  " Turn off auto indent when editing code
 "set guifont=monospace\ 16
